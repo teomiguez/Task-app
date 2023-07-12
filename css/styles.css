@@ -1,0 +1,51 @@
+#card-form {
+    display: none;
+}
+
+#card-search {
+    display: none;
+}
+
+#logo {
+    width: 1.7rem;
+    height: 1.7rem;
+}
+
+.nav-title {
+    font-size: 1.2rem;
+}
+
+table thead {
+    font-size: 1.2rem;
+}
+
+table tbody {
+    font-size: 0.8rem;
+}
+
+@media (min-width: 992px) {
+    #accordion-form {
+        display: none;
+    }
+
+    #card-form {
+        display: block;
+    }
+
+    #logo {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .nav-title {
+        font-size: 1.5rem;
+    }
+
+    table thead {
+        font-size: 1.5rem;
+    }
+
+    table tbody {
+        font-size: 1rem;
+    }
+}

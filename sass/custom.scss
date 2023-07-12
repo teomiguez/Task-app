@@ -1,0 +1,9 @@
+// Include any default variable overrides here (though functions won't be available)
+$accordion-button-active-bg:              white;
+
+$accordion-button-focus-border-color:     none;
+$accordion-button-focus-box-shadow:       none;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// Then add additional custom code here

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/icon-page.png" type="image/x-icon" />
+    <title> Task App </title>
+
+    <!-- Link's to styles -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Link's to Bootstrap -->
+    <link rel="stylesheet" href="css/custom.css">
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <div class="navbar-brand d-flex align-items-center">
+                <img id="logo" src="images/logo.png" alt="logo.png">
+                <h4 class="nav-title pt-2"> Task App </h4>
+            </div>
+            <form class="d-flex" role="search">
+                <input id="task-search" class="form-control me-1" type="text" placeholder="Search task by name..."
+                    aria-label="Search">
+                <button id="btn-search" class="btn btn-outline-success">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-search pb-1" viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </nav>
+    <main class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-5 col-auto">
+                <div id="accordion-form" class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <div class="accordion accordion-flush" id="accordionForm">
+                            <div class="accordion-item">
+                                <h5 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#formCollapse" aria-expanded="false"
+                                        aria-controls="formCollapse">
+                                        New task
+                                    </button>
+                                </h5>
+                                <div id="formCollapse" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionForm">
+                                    <hr class="mt-0">
+                                    <!-- agregar form acá -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="card-form" class="card mt-5" style="width: 18rem;">
+                    <div id="formCard" class="card-body">
+                        <h5 class="card-title"> New task </h5>
+                        <hr>
+                        <!-- agregar form acá -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-auto col-lg-7">
+                <div id="card-search" class="card my-4">
+                    <div class="card-body">
+                        <table class="table table-borderless mb-0">
+                            <thead>
+                                <tr class="align-middle">
+                                    <th scope="col"> # </th>
+                                    <th scope="col"> Task name </th>
+                                    <th scope="col"> Task description </th>
+                                    <th scope="col"> </th>
+                                </tr>
+                            </thead>
+                            <tbody id="search-result">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <table class="table mt-5">
+                    <thead>
+                        <tr class="align-middle">
+                            <th scope="col"> # </th>
+                            <th scope="col"> Task name </th>
+                            <th scope="col"> Task description </th>
+                            <th scope="col"> </th>
+                        </tr>
+                    </thead>
+                    <tbody id="tasks-list">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <template id="form-template">
+        <form>
+            <input id="task-id" type="hidden">
+            <div class="my-2">
+                <label class="form-label" for="task-name"> Task name </label>
+                <input id="task-name" name="task-name" class="form-control" type="text" required>
+            </div>
+            <div class="my-2">
+                <label class="form-label" for="task-description"> Task description </label>
+                <textarea id="task-description" name="task-description" class="form-control" cols="30" rows="10"
+                    required></textarea>
+            </div>
+            <div class="d-grid gap-2">
+                <button id="btn-submit" class="btn btn-outline-success" type="submit">
+                    Add task
+                </button>
+            </div>
+        </form>
+    </template>
+
+    <template id="task-template">
+        <tr taskid="taskId" class="align-middle">
+            <th class="task-id" scope="row"> taskId </th>
+            <td>
+                <a class="task-item" href="#" style="color: black;"> taskName </a>
+            </td>
+            <td class="task-desc"> taskDesc </td>
+            <td>
+                <button class="task-delete btn btn-outline-danger" value="taskId">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-trash3" viewBox="0 0 16 16">
+                        <path
+                            d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
+                    </svg>
+                </button>
+            </td>
+        </tr>
+    </template>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
